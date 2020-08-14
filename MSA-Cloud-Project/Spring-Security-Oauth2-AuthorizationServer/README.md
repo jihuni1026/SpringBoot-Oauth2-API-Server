@@ -1,9 +1,7 @@
 # Oauth2 AuthorizationServer(API)
 
 ### 프로젝트 제목
-- SpringBoot에서 제공하는 Oauth2 인증서버 구축 방법에 대한 실습 
-- daddyprogrammer.org에서 연재 및 소스 Github 등록
-    - https://daddyprogrammer.org/post/series/spring-boot-oauth2/
+- SpringBoot에서 제공하는 Oauth2 인증서버 구축
     
 ### 프로젝트 설명 및 환경
 - Java 8~11
