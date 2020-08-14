@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.rest'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories { // library
+    mavenCentral()
+}
+
+// ./gradlew clean
+// ./gradlew compileJava
+// ./gradlew bootRun
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // implementation 'org.springframework.boot:spring-boot-starter-aop'
+    // implementation 'org.springframework.boot:spring-boot-starter-security'
+    // implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    // implementation 'org.springframework.session:spring-session-data-redis'
+    // implementation 'org.springframework.security.oauth:spring-security-oauth2'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.1.2.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.1.2.RELEASE'
+    implementation 'com.google.code.gson:gson' // json
+
+    testCompileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // testImplementation 'org.springframework.security:spring-security-test'
+}

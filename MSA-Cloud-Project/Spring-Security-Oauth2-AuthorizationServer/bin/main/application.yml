@@ -1,0 +1,34 @@
+# Server config
+server:
+  port: 8081
+
+# Spring config
+# H2&JPA
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    # url: jdbc:h2:mem:testdb
+    # driver-class-name: org.h2.Driver
+    username: sa
+    password: 123
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate.hbm2ddl.auto: update
+    showSql: true
+
+# Security config
+security:
+  oauth2:
+    jwt:
+      signkey: 123@#$
+
+# Logging config
+logging:
+  level:
+    root: DEBUG

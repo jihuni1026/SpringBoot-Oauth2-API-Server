@@ -1,0 +1,42 @@
+# Server config
+server:
+  port: 8081
+
+# Spring config
+# H2&JPA
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    # url: jdbc:h2:mem:testdb
+    # driver-class-name: org.h2.Driver
+    username: sa
+    password: 123
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate.hbm2ddl.auto: update
+    showSql: true
+
+# Security config
+security:
+  oauth2:
+    jwt:
+      signkey: 123@#$
+
+# Logging config
+logging:
+  level:
+    root: DEBUG
+
+
+
+# TEST
+# http://localhost:8081/oauth/authorize?client_id=testClientId&redirect_uri=http://localhost:8081/oauth2/callback&response_type=code&scope=read
+# http://localhost:8081/oauth2/token/refresh?refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJoYXBweWRhZGR5QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiXSwiYXRpIjoiN2U3YTA0YTItMTFlNC00ZmViLTg4OGEtNTIxNzJiOGIzOGMxIiwiZXhwIjoxNTk3MzQzMDgyLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiMGZkYzcwZjItZGEyMC00ODg0LThlNzQtNGQ1NDY0YzUxOGQwIiwiY2xpZW50X2lkIjoidGVzdENsaWVudElkIn0.FVVZZVsnu-9Mrw97D2fiK3168My53TGKh8Wf0F3cLKw
+# INSERT INOT OAUTH_CLIENT_DETAILS (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove)
+# VALUES('testClientId', null, '{bcrypt}$2a$10$H2oQgFY7qCRHWqkvAV4P6ONy2v74wfr3fQv.xERw3BJYSqh/Gcgrq', 'read,write', 'authorization_code,refresh_token', 'http://localhost:8081/oauth2/callback', 'ROLE_USER', 36000, 50000, null, null);
